@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('https://wallpapershome.com/images/pages/pic_h/26412.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+            letter-spacing: 1px;
+        }
+
+        .login-container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            margin: 40px auto;
+            transition: all 0.3s ease;
+        }
+
+        .login-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .login-container label {
+            display: block;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .login-container input {
+            width: 100%;
+            height: 50px;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .login-container input:focus {
+            outline: none;
+            border-color: #f39c12;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+        }
+
+        .login-container input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .login-container button {
+            width: 100%;
+            height: 50px;
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            background: #f39c12;
+            border: none;
+            border-radius: 30px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+        }
+
+        .login-container button:hover {
+            background: #e67e22;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.6);
+        }
+
+        .login-container p {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-container a {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .login-container a:hover {
+            color: white;
+            background: rgba(243, 156, 18, 0.7);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+            
+            .login-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Admin Login</h1>
+        </div>
+
+        <div class="login-container">
+            <form action="admin_login.php" method="POST">
+                <label for="admin_username">Username:</label>
+                <input type="text" id="admin_username" name="admin_username" placeholder="Enter Admin Username" required>
+
+                <label for="admin_password">Password:</label>
+                <input type="password" id="admin_password" name="admin_password" placeholder="Enter Password" required>
+
+                <button type="submit">Log In</button>
+            </form>
+
+            <p><a href="login.html">Regular User Login</a></p>
+        </div>
+    </div>
+</body>
+</html>

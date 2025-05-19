@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    
+
+    
+    <style>  
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 200vh;
+            background-color: #262424; /* Changed to requested brown color */
+            color: #333; /* Dark gray text for readability */
+           
+        }
+
+            /* Navbar styles */
+            /* Navbar styles */
+            /* Navbar styles */
+            /* Navbar styles */
+        .navbar {
+            width: 100%;
+            background: transparent; /* Make the background transparent */
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between; /* Space between logo and buttons */
+            align-items: center;
+            position: fixed; /* Makes the navbar fixed */
+            top: 0; /* Ensures it sticks to the top */
+            left: 0; /* Ensures it starts from the left edge */
+            z-index: 1000; /* Ensures it stays above other content */
+        }
+
+        /* Logo on the left */
+        .navbar .logo {
+            height: 90px; /* Increase the height of the logo */
+            margin-left: 20px; /* Space from the left edge */
+        }
+
+        /* Buttons on the right */
+        .navbar .nav-buttons {
+            display: flex;
+            align-items: center;
+            margin-right: 20px; /* Space from the right edge */
+        }
+
+        .navbar .nav-buttons a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px; /* Space between buttons */
+            font-size: 18px; /* Larger font size */
+            transition: color 0.3s, transform 0.3s;
+            padding: 10px 15px; /* Larger padding for bigger buttons */
+            border-radius: 5px;
+        }
+
+        .navbar .nav-buttons a:hover {
+            color: #ffdd57; /* Gold color on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+            background: rgba(255, 255, 255, 0.1); /* Subtle background on hover */
+        }
+        .hero {
+            height: 100vh;
+            width: 100%;
+            background: url("https://images2.alphacoders.com/107/thumb-1920-1070212.jpg") no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: flex-start; /* Changed from flex-end to flex-start to move text to top */
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            padding-top: 80px; /* Added padding-top instead of padding-bottom */
+            padding-bottom: 0; /* Removed bottom padding */
+            margin-top: 0;
+        }
+
+        /* Card styles */
+        .card {
+            width: 98%;
+            max-width: 1600px;
+            background: #d3cec9; /* Changed to requested light beige color */
+            padding: 80px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 50px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            color: #333; /* Dark gray text for contrast */
+        }
+
+        .card h1 {
+            font-size: 4rem; /* Very large font size */
+            margin-bottom: 30px;
+            color: #262424;
+        }
+
+        .card p {
+            font-size: 2rem; /* Larger font size */
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        .card .btn {
+            width: 200px; /* Smaller width for the button */
+            background: #262424; /* Dark gray color */
+            color: white;
+            padding: 12px 24px; /* Standard padding */
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem; /* Standard font size */
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            margin: 0 auto; /* Center the button */
+        }
+
+        .card .btn:hover {
+            background: #777; /* Slightly lighter gray on hover */
+            color: white;
+        }
+
+        /* What We Provide Section */
+        .what-we-provide {
+            width: 98%;
+            max-width: 1600px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .what-we-provide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #EEE5DA;
+        }
+
+        .services-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px; /* Space between cards */
+        }
+
+        .service-card, .listing-card {
+            background: #d3cec9; /* Changed to requested light beige color */
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            flex: 1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            aspect-ratio: 1 / 1;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: #333; /* Dark gray text for contrast */
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px); /* Lift effect on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+        }
+
+        .service-card .icon {
+            font-size: 3rem; /* Larger icon size */
+            color: #555; /* Icon color */
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #262424;
+        }
+
+        .service-card p {
+            font-size: 1.2rem;
+            color: #262424;
+            margin-bottom: 20px;
+        }
+
+        .service-card .subtext {
+            font-size: 1rem;
+            color: #777;
+            font-style: italic;
+        }
+
+        /* What We Do Section */
+        .what-we-do {
+            width: 98%;
+            max-width: 1600px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .what-we-do h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+
+        .listings-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px; /* Space between cards */
+        }
+
+        .listing-card:hover {
+            transform: translateY(-10px); /* Lift effect on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+        }
+
+        .listing-card .icon {
+            font-size: 3rem; /* Larger icon size */
+            color: #555; /* Icon color */
+            margin-bottom: 20px;
+        }
+
+        .listing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .listing-card p {
+            font-size: 1.2rem;
+            color: #555;    
+            margin-bottom: 20px;
+        }
+
+        .listing-card .subtext {
+            font-size: 1rem;
+            color: #777;
+            font-style: italic;
+        }
+        
+        .form-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .login-box {
+            background: white; /* White background for the form */
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            width: 350px;
+            border: 2px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            color: #333; /* Dark gray text for contrast */
+        }
+        
+        h2 {
+            color: #333333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .input-box {
+            position: relative;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            background: #e0e0e0;
+            padding: 10px;
+            border: 2px solid #ccc;
+            box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .input-box input, .input-box select {
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            border: none;
+            color: #333;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .input-box .icon {
+            color: #777;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        
+        select {
+            appearance: none;
+            background: transparent;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            color: #333;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            background: black;
+            color: white;
+            transition: 0.3s;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn:hover {
+            background: white;
+            color: black;
+            border: 2px solid black;
+        }
+        
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+        p {
+            color: #333;
+        }
+
+        /* Footer Styles */
+        .footer {
+            width: 100%;
+            background: #333;
+            color: #fff;
+            padding: 40px 0;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: #ffdd57;
+        }
+
+        .footer p {
+            color: #ccc;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .footer .email {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .footer .email-icon {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .footer .contact-email {
+            color: #ffdd57;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer .contact-email:hover {
+            color: #fff;
+        }
+
+        .footer .copyright {
+            margin-top: 30px;
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">
+    <!-- Logo on the left -->
+    <img src="\car_marketplace\relatedimages\webpagesimg\logo.png" alt="Logo" class="logo">
+    
+    <!-- Buttons on the right -->
+    <div class="nav-buttons">
+        <a href="login.html">Login</a>
+        <a href="about.html">About Us</a>
+        <a href="guide.html">Guide</a>
+    </div>
+</div>
+    <!-- Hero Section -->
+    <div class="hero">
+        FIND YOUR FAVOURITE CAR<br>
+        LET US HELP YOU TO GET THE BEST DEAL
+    </div>
+
+    <!-- Card Section -->
+    <div class="card">
+        <h1>Welcome to Our Dealership</h1>
+        <p>We are one of the most trusted car dealers in the industry. Allow us to help you find the perfect car for you!</p>
+        <button class="btn" onclick="scrollToForm()">Sign Up</button>
+    </div>
+
+    <!-- What We Provide Section -->
+    <div class="what-we-provide">
+        <h2>What We Provide</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <span class="icon">👤</span> <!-- Icon for 1 on 1 Consultation -->
+                <h3>1 on 1 Consultation</h3>
+                <p>Personalized guidance to help you choose the perfect car.</p>
+                <p class="subtext">Our experts will guide you through every step.</p>
+            </div>
+            <div class="service-card">
+                <span class="icon">🚗</span> <!-- Icon for Free Test Drive -->
+                <h3>Free Test Drive</h3>
+                <p>Experience the car before making a decision.</p>
+                <p class="subtext">Test drive your favorite models at no cost.</p>
+            </div>
+            <div class="service-card">
+                <span class="icon">✅</span> <!-- Icon for Authenticated Sellers -->
+                <h3>Authenticated Sellers</h3>
+                <p>Trustworthy sellers with verified credentials.</p>
+                <p class="subtext">We ensure all sellers are certified and reliable.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- What We Do Section -->
+    <div class="what-we-do">
+        <h2>What We Do</h2>
+        <div class="listings-container">
+            <div class="listing-card">
+                <span class="icon">📍</span> <!-- Icon for Local Sellers Listings -->
+                <h3>Local Sellers Listings</h3>
+                <p>Find trusted local sellers in your area.</p>
+                <p class="subtext">Browse through local car listings.</p>
+            </div>
+            <div class="listing-card">
+                <span class="icon">👨‍💼</span> <!-- Icon for Admin Listings -->
+                <h3>Admin Listings</h3>
+                <p>Access exclusive listings managed by our team. Cars listed with the username Admin, are showroom exclusive</p>
+                <p class="subtext">Curated listings for premium vehicles.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="form-container" id="registrationForm">
+        <div class="login-box">
+            <h2>Register</h2>
+            <p id="message"></p>
+            <form action="register.php" method="POST">
+                <div class="input-box">
+                    <span class="icon">@</span>
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-box">
+                    <span class="icon">✉️</span>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-box">
+                    <span class="icon">🔒</span>
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="input-box">
+                    <span class="icon">👤</span>
+                    <select name="user_type" required>
+                        <option value="customer">Customer</option>
+                        <option value="seller">Seller</option>
+                    </select>
+                </div>
+                <button action="login.html" type="submit" class="btn">Register</button>
+            </form><br>
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Contact Us</h3>
+            <div class="email">
+                <span class="email-icon">✉️</span>
+                <a href="mailto:userhelpdrivenation@gmail.com" class="contact-email">userhelpdrivenation@gmail.com</a>
+            </div>
+            <p>We're here to help you find your perfect vehicle.</p>
+            <div class="copyright">
+                &copy; 2025 DriveNation. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to scroll to the registration form
+        function scrollToForm() {
+            document.getElementById('registrationForm').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Handle error and success messages
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+        const success = urlParams.get('success');
+        if (error) {
+            document.getElementById("message").innerHTML = `<span class="error">${error}</span>`;
+        } else if (success) {
+            document.getElementById("message").innerHTML = `<span class="success">${success}</span>`;
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 3000); // Redirects to login.html after 3 seconds
+        }
+    </script>
+</body>
+</html>
